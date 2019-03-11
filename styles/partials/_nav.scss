@@ -1,0 +1,17 @@
+nav {
+    background: darken($bgColor, 10);
+
+    .navbar {
+        display:flex;
+        justify-content: space-between;
+
+        ul {
+            display:flex;
+
+            li {
+                list-style:none;
+            };
+        };
+    };
+};
+

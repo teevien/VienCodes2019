@@ -1,0 +1,17 @@
+#contact {
+    text-align:center;
+    min-height:300px;
+
+    h2 {
+        margin-bottom:$m-size;
+    };
+};
+
+footer {
+    text-align:center;
+    font-size:1rem;
+
+    span {
+        color: $accentColor;
+    }
+};

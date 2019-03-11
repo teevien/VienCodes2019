@@ -1,0 +1,52 @@
+html {
+    font-size:62.5%;
+    scroll-behavior: smooth;
+
+    body {
+        background:$bgColor;
+        @include baseFont(1.2rem);
+        
+        .wrapper {
+            max-width:1280px;
+            width:85%;
+            margin:0 auto;
+        };
+
+        a {
+            text-decoration:none;
+            color: $fontColor;
+            margin-left:10px;
+        };
+
+        h1 {
+            // @include titleFont(6rem);
+            font-family: $baseFont;
+            color: $fontColor;
+            font-size:6rem;
+            letter-spacing:10px;
+            margin:0 0 10px 0;
+            text-shadow:3px 3px 3px black;
+            // text-transform:none;
+            line-height:5rem;
+        };
+
+        h2 {
+            @include headingFont(3rem);
+            margin-top:10px;
+            text-transform:uppercase;
+            background: lighten($bgColor, 10);
+            padding:10px 5px;
+            text-align:center;
+        };
+
+        h3 {
+            @include accentFont(2rem);
+            letter-spacing: 5px;
+            text-transform:none;
+            padding-top:10px;
+            // font-weight:bold;
+            text-shadow:3px 3px 3px black;
+        };
+    };
+};
+
