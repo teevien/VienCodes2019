@@ -183,21 +183,123 @@ html {
       padding-top: 10px;
       text-shadow: 3px 3px 3px black; }
 
-nav {
-  background: black; }
-  nav .navbar {
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.menu-toggle {
+  display: inline-block;
+  padding: .75em 15px;
+  line-height: 1em;
+  font-size: 1.6rem;
+  color: #fcfcfc; }
+  .menu-toggle:hover, .menu-toggle:focus {
+    color: #BC8F8F; }
+
+.main-menu {
+  position: absolute;
+  display: none;
+  left: -200px;
+  top: 0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  -webkit-transition: left 0.3s ease, -webkit-box-shadow 0.3 ease;
+  transition: left 0.3s ease, -webkit-box-shadow 0.3 ease;
+  -o-transition: left 0.3s ease, box-shadow 0.3 ease;
+  transition: left 0.3s ease, box-shadow 0.3 ease;
+  transition: left 0.3s ease, box-shadow 0.3 ease, -webkit-box-shadow 0.3 ease;
+  z-index: 999; }
+  .main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 2.5em 0 0;
+    min-height: 100%;
+    width: 200px;
+    background: black;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+  .main-menu a {
+    display: block;
+    padding: .75em 30px;
+    line-height: 1em;
+    font-size: 1.2rem;
+    text-decoration: none; }
+    .main-menu a:hover, .main-menu a:focus {
+      background: #333333; }
+  .main-menu .menu-close {
+    position: absolute;
+    top: 0;
+    right: 0; }
+
+.main-menu:target, .main-menu[aria-expanded="true"] {
+  display: block;
+  left: 0;
+  outline: none; }
+
+.main-menu:target .menu-close, .main-menu[aria-expanded="true"] .menu-close {
+  z-index: 1001; }
+
+.main-menu:target ul, .main-menu[aria-expanded="true"] ul {
+  position: relative;
+  z-index: 1000; }
+
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  cursor: default; }
+
+@supports (position: fixed) {
+  .main-menu,
+  .main-menu:target + .backdrop,
+  .main-menu[aria-expanded="true"] + .backdrop {
+    position: fixed; } }
+
+@media (min-width: 768px) {
+  .menu-toggle,
+  .main-menu .menu-close {
+    display: none; }
+  /* Undo positioning of off-canvas menu */
+  .main-menu {
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+    display: block; }
+  .main-menu ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
-    nav .navbar ul {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex; }
-      nav .navbar ul li {
-        list-style: none; }
+    /* Undo off-canvas styling */
+    padding: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: auto;
+    width: auto;
+    background: none; }
+  .main-menu a {
+    color: #fcfcfc;
+    border: 0 !important;
+    /* Remove borders from off-canvas styling */ }
+  .main-menu a:hover,
+  .main-menu a:focus {
+    background: none;
+    /* Remove background from off-canvas styling */
+    color: #BC8F8F; } }
 
 header {
   min-height: 100vh;
